@@ -1,0 +1,61 @@
+\documentclass{tufte-handout}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage{booktabs}
+\usepackage{microtype}
+
+\pagestyle{empty}
+
+
+\title{Flow Report}
+\author{Comrade Samuel Rosenqvist}
+
+\begin{document}
+  \maketitle
+
+  \section{Results}
+
+  Our implementation successfully computes a flow of 163 on the input file, confirming the analysis of the American enemy.
+  
+
+  We have analysed the possibilities of descreasing the capacities near Minsk.
+  Our analysis is summarized in the following table:
+  
+
+\bigskip
+  \begin{tabular}{rccc}\toprule
+    Case & 4W--48 & 4W--49 & Effect on flow \\\midrule
+    1& 30& 20 & no change \\
+    2& 20 &30 & no change \\
+    3&20 & 20& no change \\
+    4&20 & 10& $-10$ \\
+    5&10 & 20& $-10$ \\ 
+    6&10 & 10& $-20$ \\ \\\bottomrule
+  \end{tabular}
+  \bigskip
+
+  In case 4, the new bottleneck becomes
+  \begin{quote}
+      10--25, 11--24, 11--25, 12-23, 18--22, 20--21, 20--23, 27--26, 28--30
+  \end{quote}
+  The comrade from Minsk is advised to focus resources on one of the two lines to secure the overall capacity of the railway. 
+
+  \section{Implementation details}
+
+  We use a straighforward implemenation of Ford-Fulkerson method.
+  We use a dfs algorithm to find an augmenting path.
+
+  The running time is $O(E*f)$ where $E$ is the number of edges and $f$ is the maximum flow in the graph.
+
+  The edges and the residual graph are represented as adjacency matrices built from nested lists.
+  Below is initialization of the residual graph where all edges are given a initial flow of zero.
+  
+  \begin{verbatim}
+    
+      F = [[0] * n for i in range(n)]
+    
+  \end{verbatim}
+
+
+\end{document}

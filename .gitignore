@@ -1,0 +1,8 @@
+*/report/*
+settings.json
+stablemarriage/data/.vs/*
+*out.txt
+*.out
+result.txt
+huge.in
+huge.tsp
